@@ -1,40 +1,42 @@
-// --- IP Kopyalama Sistemi (Yeşil animasyonlu bildirim) ---
-const copyBtn = document.getElementById('copy-ip-btn');
-const copyToast = document.getElementById('copy-toast');
+// --- Sayfa Geçiş Sistemi (Anlık Hız) ---
+document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
 
-if (copyBtn && copyToast) {
+        // Tüm bölümleri gizle
+        document.querySelectorAll('.view-section').forEach(section => {
+            section.classList.add('hidden');
+        });
+
+        // Hedef bölümü göster
+        const targetView = document.getElementById('view-' + target);
+        if (targetView) {
+            targetView.classList.remove('hidden');
+            // Sayfayı yukarı kaydır
+            window.scrollTo(0, 0);
+        }
+
+        // Butonların aktiflik durumunu güncelle
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        // Eğer menüdeki butonlardan biriyse aktif yap
+        if(btn.classList.contains('nav-btn')) btn.classList.add('active');
+    });
+});
+
+// --- IP Kopyalama ve Bildirim ---
+const copyBtn = document.getElementById('copy-ip-btn');
+const toast = document.getElementById('copy-toast');
+
+if (copyBtn) {
     copyBtn.addEventListener('click', () => {
         const ip = "oyna.oldfinecraft.online";
         navigator.clipboard.writeText(ip).then(() => {
             // Bildirimi göster
-            copyToast.classList.add('show');
-            // 3 saniye sonra bildirimi gizle
+            toast.classList.add('show');
+            // 2.5 saniye sonra gizle
             setTimeout(() => {
-                copyToast.classList.remove('show');
-            }, 3000);
+                toast.classList.remove('show');
+            }, 2500);
         });
     });
 }
-
-// --- Navigasyon Geçişleri (Sayfalar arası geçiş aktif) ---
-document.querySelectorAll('.nav-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const target = btn.dataset.target;
-        
-        // Tüm navigasyon butonlarındaki 'active' sınıfını temizle
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        // Tıklanan butona 'active' sınıfını ekle
-        btn.classList.add('active');
-        
-        // Tüm section'ları gizle
-        document.querySelectorAll('main.view-section').forEach(section => {
-            section.classList.add('hidden');
-        });
-        
-        // Hedef section'ı göster
-        const targetSection = document.getElementById(target);
-        if (targetSection) {
-            targetSection.classList.remove('hidden');
-        }
-    });
-});
