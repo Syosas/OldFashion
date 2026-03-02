@@ -1,42 +1,36 @@
-// --- Sayfa Geçiş Sistemi (Anlık Hız) ---
+// Sayfa Geçiş Sistemi (Animasyonlu)
 document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         const target = btn.dataset.target;
+        const mainContent = document.querySelector('.animate-content');
 
-        // Tüm bölümleri gizle
-        document.querySelectorAll('.view-section').forEach(section => {
-            section.classList.add('hidden');
-        });
+        // Önce animasyonu sıfırla
+        mainContent.style.opacity = '0';
+        
+        setTimeout(() => {
+            document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden'));
+            
+            const targetView = document.getElementById('view-' + target);
+            if (targetView) targetView.classList.remove('hidden');
 
-        // Hedef bölümü göster
-        const targetView = document.getElementById('view-' + target);
-        if (targetView) {
-            targetView.classList.remove('hidden');
-            // Sayfayı yukarı kaydır
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Animasyonla geri getir
+            mainContent.style.opacity = '1';
             window.scrollTo(0, 0);
-        }
-
-        // Butonların aktiflik durumunu güncelle
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        // Eğer menüdeki butonlardan biriyse aktif yap
-        if(btn.classList.contains('nav-btn')) btn.classList.add('active');
+        }, 150);
     });
 });
 
-// --- IP Kopyalama ve Bildirim ---
+// IP Kopyalama
 const copyBtn = document.getElementById('copy-ip-btn');
 const toast = document.getElementById('copy-toast');
-
 if (copyBtn) {
     copyBtn.addEventListener('click', () => {
-        const ip = "oyna.oldfinecraft.online";
-        navigator.clipboard.writeText(ip).then(() => {
-            // Bildirimi göster
+        navigator.clipboard.writeText("oyna.oldfinecraft.online").then(() => {
             toast.classList.add('show');
-            // 2.5 saniye sonra gizle
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2500);
+            setTimeout(() => toast.classList.remove('show'), 2500);
         });
     });
 }
