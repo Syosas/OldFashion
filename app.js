@@ -1,29 +1,24 @@
-// Sayfa Geçiş Sistemi (Animasyonlu)
+// --- Sayfa Geçiş Sistemi ---
 document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         const target = btn.dataset.target;
-        const mainContent = document.querySelector('.animate-content');
-
-        // Önce animasyonu sıfırla
-        mainContent.style.opacity = '0';
         
-        setTimeout(() => {
-            document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden'));
-            
-            const targetView = document.getElementById('view-' + target);
-            if (targetView) targetView.classList.remove('hidden');
-
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Animasyonla geri getir
-            mainContent.style.opacity = '1';
+        // Hız için görünürlüğü anlık değiştiriyoruz
+        document.querySelectorAll('.view-section').forEach(s => s.classList.add('hidden'));
+        
+        const targetView = document.getElementById('view-' + target);
+        if (targetView) {
+            targetView.classList.remove('hidden');
             window.scrollTo(0, 0);
-        }, 150);
+        }
+
+        // Aktif buton stilini güncelle
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        if (btn.classList.contains('nav-btn')) btn.classList.add('active');
     });
 });
 
-// IP Kopyalama
+// --- IP Kopyalama ---
 const copyBtn = document.getElementById('copy-ip-btn');
 const toast = document.getElementById('copy-toast');
 if (copyBtn) {
