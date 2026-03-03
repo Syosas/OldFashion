@@ -201,7 +201,7 @@ body {
     background-image: url('background.png');
     background-size: cover;
     background-position: left bottom;
-    opacity: 0.18;
+    opacity: 0.22;
     border-radius: 20px;
     z-index: 0;
 }
