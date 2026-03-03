@@ -81,7 +81,7 @@ function showView(target, authType = null, scrollTarget = null) {
             switchAuthTab(authType);
         }
 
-        // Scroll to section in info view
+        // Scroll to section within bilgiler view
         if (scrollTarget) {
             setTimeout(() => {
                 const sec = document.getElementById('section-' + scrollTarget);
@@ -99,7 +99,7 @@ function updateNavActive(target, scrollTarget) {
     document.querySelectorAll('.nav-underline').forEach(btn => {
         const sameTarget = btn.dataset.target === target;
         const sameScroll = scrollTarget ? btn.dataset.scroll === scrollTarget : !btn.dataset.scroll;
-        const isActive = sameTarget && (target !== 'info' || sameScroll);
+        const isActive = sameTarget && sameScroll;
         btn.classList.toggle('active', isActive);
         btn.style.color = isActive ? 'white' : '';
     });
