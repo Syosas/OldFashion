@@ -33,13 +33,12 @@
 
             <!-- Logo -->
             <div class="flex items-center gap-2 cursor-pointer" id="nav-logo">
-                <img src="images/logo.png" alt="OldFineCraft" class="w-8 h-8 object-contain">
+                <img src="images/logo.png" alt="OldFineCraft" class="w-11 h-11 object-contain">
             </div>
 
-            <!-- Desktop Nav - shifted left -->
+            <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-6 text-sm font-medium text-white/60">
                 <button class="nav-btn nav-underline active" data-target="home">Ana Sayfa</button>
-                <button class="nav-btn nav-underline" data-target="store">Mağaza</button>
                 <button class="nav-btn nav-underline" data-target="store">Mağaza</button>
                 <button class="nav-btn nav-underline" data-target="bakiye">Bakiye Yükle</button>
                 <button class="nav-btn nav-underline" data-target="bilgiler">Bilgiler</button>
@@ -187,6 +186,24 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Oynayış Hakkında -->
+                <div id="section-oynayis" class="info-card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i data-lucide="gamepad-2" class="w-5 h-5 feature-icon"></i>
+                        Oynayış Hakkında:
+                    </h3>
+                    <div class="space-y-5 text-white/70 text-sm leading-relaxed">
+                        <p>Sunucunun oynayış mantığı aslında basittir: Bir kaç temelden oluşur ve diğer sunuculardan farklıdır. Ne gibi bir farklılıktan bahsettiğimizi anlamak için farklılık kısımlarını okuyabilir veya isterseniz oynadıkça da öğrenebilirsiniz, seçim sizin!</p>
+                        <div>
+                            <h4 class="text-sm font-bold text-white mb-2">Farklılıklar:</h4>
+                            <p>Sunucumuzda TNT kullanımı adil ortam gerekçesiyle kapalıdır. Eğer bir farm yapmayı, netherite arayışında kullanmak veya savaşlarda rakiplerinizi patlatmayı hedefliyorsanız maalesef ki kullanamayacaksınız. Eğer "İyi de sunucuda Claim yok mu? Ne gerek vardı böyle bir değişikliğe?" diyecek olursanız onun da basit bir açıklaması mevcut. Claim yaptıysanız araziniz her halükarda dokunulmaz olacaktır, ama işin içine TNT dahil olunca maalesef ki bazı oyuncular bunun bir çözümünü bulmuş vaziyette hemen destek ekibine haber ettiler ve bizde düzeltemeyince kapatmayı seçtik. En kötü senaryo büyük bir yapınız varsa emek verdiğiniz, oyuna girdiğinizde onu patlatılmış ve berbat bir halde görebilirdiniz. Böyle bir durumda sorumlu biz oluyoruz çünkü bizim sunucumuzda emek verip saatlerce, günlerce, aylarca, belki de yıllarca uğraştığınız eşyalarla birlikte yapınız patlatılıyor ve siz sadece emek sarf etmiş bir oyuncusunuz sunucuyu yapansa biz. Böyle bir vaziyete düşmenizi asla istemeyiz! Bu sebepten TNT sunucumuzda devre dışıdır. Hasar alma, hasar verme, dağıtmak, öldürmek hiç bir şekilde mümkün değildir.</p>
+                        </div>
+                        <p>OldFineCraft'ta lobi mevcut değil. Bununda sebebi çok basit: Biz sunucumuzu Hayatta Kalma üzerine inşa ettik, herkes gibi lobi eklemek yerine herkesten farklı olmak adıyla sadece oyuna her girdiğinizde ıssız ve karanlık bir boşlukta, siteye kayıt olduğunuz şifreyle giriş yaparak Survival dünyasında en son kaldığınız yere ışınlanıyorsunuz. Biz elbette sadece Survival eklemedik, bir bekleme alanı da ekledik. Ancak burası normal bir bekleme alanı yerine çok daha işlevsel ve ödüller alabileceğiniz, kasa anahtarıyla kasalar açabileceğiniz, sohbet edebileceğiniz ve ek olarak oyun paranızla tecrübe seviyesi alabileceğiniz bir sistem ekledik! Sadece onlarla yetinmedik üstelik dakika başına afk kalarak, yani bekleyerek 2 adet parçacık alabilirsiniz. Parçacıklar çoğaldıkca size daha çok avantaj sağlayan, tecrübe puanı kasmanıza olanak sağlayan ve aldığınız moblara özel eşyalarını Spawnerin içinden çok rahatlıkla alabilirsiniz. Bu spawnerları sadece bekleme yerinde ki marketten alabilirsiniz, komutla satın alabileceğiniz sıkıcı bir sistem yerine böylesine daha güzel bir sistem getirmeyi seçtik.
+                        <br><em style="font-style:italic; font-weight:700;">Komutları:</em> /bekleme, /afk, /alem, /anahtar</p>
+                        <p>Sunucumuza herkes gibi sunucu masraflarını karşılamak maksadıyla VIP seviyeleri getirdik: <strong style="color:#6a3ac2;">VIP</strong>, <strong style="color:#ffe14d;">MVP</strong>, <strong style="color:#74211b;">LEGEND</strong>. Mevcut VIP seçenekleri bunlardır ve yenisini eklemeyi düşünmüyoruz. Sadece VIP değil, bir birinden farklı ve avantajlı hoş ürünlerin fiyatına mağaza üzerinden bakabilir ve Azerbaycan, Türkiye banka kartınız hemen varsa ödeme gerçekleştirebilirsiniz! (Aynı zamanda kurucunun <a href="https://linktr.ee/SyosaS" target="_blank" rel="noopener" class="text-blue-400 underline hover:text-blue-300 transition-colors">Sosyal Medya</a> sayfalarını takip ederek indirim kodlarını anında kapabilirsiniz!)</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -255,16 +272,6 @@
             </div>
         </section>
 
-        <!-- Bakiye Yükle View -->
-        <section id="view-bakiye" class="view-section max-w-lg mx-auto px-6 py-24">
-            <div class="auth-card p-8 rounded-2xl shadow-2xl text-center">
-                <i data-lucide="wallet" class="w-12 h-12 feature-icon mx-auto mb-4"></i>
-                <h2 class="text-2xl font-bold mb-2">Bakiye Yükle</h2>
-                <p class="text-white/50 text-sm mb-8">Hesabına kredi yükleyerek mağazadan alışveriş yapabilirsin.</p>
-                <p class="text-white/30 text-xs">Bu özellik yakında aktif olacak. Şimdilik mağazadan doğrudan ödeme yapabilirsin.</p>
-            </div>
-        </section>
-
         <!-- Auth View -->
         <section id="view-auth" class="view-section max-w-md mx-auto px-6 py-24">
             <div class="auth-card p-8 rounded-2xl shadow-2xl">
@@ -300,7 +307,7 @@
     <footer class="border-t border-white/10 py-8 mt-auto">
         <div class="max-w-6xl mx-auto px-6 text-center flex flex-col items-center">
             <div class="flex items-center gap-2 mb-4">
-                <img src="images/logo.png" alt="Logo" class="w-4 h-4 object-contain">
+                <img src="images/logo.png" alt="Logo" class="w-7 h-7 object-contain">
                 <span class="font-bold text-white/80">OldFineCraft</span>
             </div>
             <p class="text-sm text-white/40">© 2026 OldFineCraft. Tüm hakları saklıdır. Minecraft veya Mojang ile resmi bir bağı yoktur.</p>
