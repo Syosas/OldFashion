@@ -248,7 +248,7 @@
                             </ul>
                             <div class="mt-2">
                                 <p class="mb-2"><em class="text-white/50">Ev Limitleri Hakkında Bilgilendirme:</em></p>
-                                <ul class="space-y-1.5">
+                                <ul class="space-y-1.5 list-disc list-outside pl-5">
                                     <li><span class="font-semibold text-white">Sade Oyuncular:</span> En fazla 2 adet ev noktası kaydedebilir. Maceranız için en stratejik noktaları seçmeyi unutmayın!</li>
                                     <li><span class="font-semibold text-white">VIP Oyuncular:</span> VIP statünüze göre daha fazla ev kaydetme hakkına sahip olabilir ve haritanın dört bir yanına kendi ağınızı kurabilirsiniz.</li>
                                 </ul>
@@ -337,35 +337,54 @@
         </section>
 
         <!-- Auth View -->
-        <section id="view-auth" class="view-section max-w-md mx-auto px-6 py-24">
-            <div class="auth-card p-8 rounded-2xl shadow-2xl">
-                <div class="flex justify-center mb-6">
-                    <div class="w-16 h-16 rounded-full bg-white/8 border border-white/15 flex items-center justify-center">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.35)"/>
-                            <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.35)" stroke-width="1.8" stroke-linecap="round"/>
-                        </svg>
-                    </div>
+        <section id="view-auth" class="view-section min-h-screen flex items-center justify-center px-6 py-16" style="background: radial-gradient(ellipse at 50% 0%, rgba(116,33,27,0.13) 0%, transparent 60%);">
+            <div class="w-full max-w-sm">
+
+                <!-- Tab switcher -->
+                <div class="auth-tab-bar flex mb-6">
+                    <button class="auth-tab active flex-1 py-2.5 text-sm font-semibold rounded-l-lg" data-type="login">Giriş Yap</button>
+                    <button class="auth-tab flex-1 py-2.5 text-sm font-semibold rounded-r-lg" data-type="register">Kayıt Ol</button>
                 </div>
-                <div class="flex gap-4 mb-8 border-b border-white/10 pb-4">
-                    <button class="flex-1 text-center font-medium auth-tab active text-white" data-type="login">Giriş Yap</button>
-                    <button class="flex-1 text-center font-medium auth-tab text-white/50" data-type="register">Kayıt Ol</button>
+
+                <!-- Card -->
+                <div class="auth-card-new rounded-2xl p-8">
+
+                    <!-- Avatar -->
+                    <div class="flex justify-center mb-6">
+                        <div class="auth-avatar">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.5)"/>
+                                <path d="M4 20c0-3.866 3.582-7 8-7s8 3.134 8 7" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Title -->
+                    <div id="auth-title-block" class="text-center mb-7">
+                        <h2 class="text-lg font-bold text-white mb-1">Tekrar hoş geldin</h2>
+                        <p class="text-xs text-white/40">Hesabına giriş yap ve macerana devam et</p>
+                    </div>
+
+                    <form id="auth-form" class="space-y-4">
+                        <div id="register-fields" class="hidden space-y-4">
+                            <div class="auth-field-wrap">
+                                <label class="auth-label">E-Posta</label>
+                                <input type="email" class="auth-input-new" placeholder="steve@minecraft.net">
+                            </div>
+                        </div>
+                        <div class="auth-field-wrap">
+                            <label class="auth-label">Kullanıcı Adı</label>
+                            <input type="text" class="auth-input-new" placeholder="Steve">
+                        </div>
+                        <div class="auth-field-wrap">
+                            <label class="auth-label">Şifre</label>
+                            <input type="password" class="auth-input-new" placeholder="••••••••">
+                        </div>
+                        <button type="button" class="submit-btn-new w-full py-2.5 rounded-lg text-white text-sm font-semibold mt-2">Devam Et</button>
+                    </form>
+
+                    <p class="text-center text-xs text-white/25 mt-6">OldFineCraft © 2026</p>
                 </div>
-                <form id="auth-form" class="space-y-4">
-                    <div id="register-fields" class="hidden">
-                        <label class="block text-sm text-white/60 mb-1">E-Posta</label>
-                        <input type="email" class="auth-input w-full rounded-md px-4 py-2 text-white focus:outline-none transition-colors mb-4" placeholder="steve@minecraft.net">
-                    </div>
-                    <div>
-                        <label class="block text-sm text-white/60 mb-1">Kullanıcı Adı</label>
-                        <input type="text" class="auth-input w-full rounded-md px-4 py-2 text-white focus:outline-none transition-colors" placeholder="Steve">
-                    </div>
-                    <div>
-                        <label class="block text-sm text-white/60 mb-1">Şifre</label>
-                        <input type="password" class="auth-input w-full rounded-md px-4 py-2 text-white focus:outline-none transition-colors" placeholder="••••••••">
-                    </div>
-                    <button type="button" class="w-full text-white font-medium py-2 rounded-md transition-colors mt-4 submit-btn">Devam Et</button>
-                </form>
             </div>
         </section>
 
