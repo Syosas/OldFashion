@@ -14,19 +14,13 @@ window.addEventListener('load', () => {
 // ─── PAGE REVEAL (fade in from black on load/refresh) ───────
 function initPageReveal() {
     const overlay = document.getElementById('page-overlay');
-    const homeSection = document.getElementById('view-home');
-    if (homeSection) {
-        homeSection.style.display = 'block';
-        homeSection.classList.add('active');
-    }
     overlay.classList.add('active');
-    // Layout'un tam oturması için iki frame bekle
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
             setTimeout(() => {
                 overlay.style.transition = 'opacity 0.5s ease';
                 overlay.classList.remove('active');
-            }, 120);
+            }, 80);
         });
     });
 }
