@@ -14,18 +14,20 @@ window.addEventListener('load', () => {
 // ─── PAGE REVEAL (fade in from black on load/refresh) ───────
 function initPageReveal() {
     const overlay = document.getElementById('page-overlay');
-    // Ensure home section is properly visible on first load
     const homeSection = document.getElementById('view-home');
     if (homeSection) {
         homeSection.style.display = 'block';
         homeSection.classList.add('active');
     }
     overlay.classList.add('active');
+    // Layout'un tam oturması için iki frame bekle
     requestAnimationFrame(() => {
-        setTimeout(() => {
-            overlay.style.transition = 'opacity 0.55s ease';
-            overlay.classList.remove('active');
-        }, 60);
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                overlay.style.transition = 'opacity 0.5s ease';
+                overlay.classList.remove('active');
+            }, 120);
+        });
     });
 }
 
@@ -118,16 +120,11 @@ function initNavHoverEffect() {
     navBtns.forEach(btn => {
         btn.addEventListener('mouseenter', () => {
             navBtns.forEach(b => {
-                if (b !== btn && b.classList.contains('active')) {
-                    b.classList.add('hover-suppressed');
-                }
+                if (b !== btn) b.classList.add('hover-suppressed');
             });
         });
         btn.addEventListener('mouseleave', () => {
-            // Küçük gecikme ile geri al — ani kırmızı geçişi önler
-            setTimeout(() => {
-                navBtns.forEach(b => b.classList.remove('hover-suppressed'));
-            }, 80);
+            navBtns.forEach(b => b.classList.remove('hover-suppressed'));
         });
     });
 }
