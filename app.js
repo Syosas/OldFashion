@@ -13,16 +13,12 @@ window.addEventListener('load', () => {
 
 // ─── PAGE REVEAL (fade in from black on load/refresh) ───────
 function initPageReveal() {
+    // Overlay sadece sayfa geçişlerinde kullanılır, ilk yüklemede dokunmuyoruz
     const overlay = document.getElementById('page-overlay');
-    overlay.classList.add('active');
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            setTimeout(() => {
-                overlay.style.transition = 'opacity 0.5s ease';
-                overlay.classList.remove('active');
-            }, 80);
-        });
-    });
+    if (overlay) {
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+    }
 }
 
 // ─── PAGE TRANSITION ────────────────────────────────────────
