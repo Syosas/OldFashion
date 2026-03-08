@@ -51,19 +51,6 @@ body {
     display: flex;
 }
 
-/* İlk yüklemede hero boşluk önlemi */
-#view-home {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-#view-home.view-section {
-    display: block;
-}
-#view-home:not(.active) {
-    display: none;
-}
-
 /* ─── FADE IN ─────────────────────────────── */
 .fade-in {
     animation: fadeIn 0.7s ease forwards;
@@ -219,7 +206,7 @@ body {
 /* ─── HERO WRAPPER ────────────────────────── */
 .hero-wrapper {
     position: relative;
-    min-height: calc(100vh - 65px);
+    min-height: calc(100dvh - 65px);
     overflow: hidden;
     contain: layout;
     display: flex;
