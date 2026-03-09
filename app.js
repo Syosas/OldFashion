@@ -67,21 +67,17 @@ function showView(target, authType = null, scrollTarget = null) {
     if (target === currentView && !scrollTarget && !authType) return;
 
     transitionTo(() => {
-        // Tüm section'ları gizle — inline style ile (CSS !important'ı geçersiz kılar)
+        // Tüm section'ları gizle — inline style ile
         document.querySelectorAll('.view-section').forEach(s => {
             s.classList.remove('active', 'anim-enter');
-            s.style.display = 'none';
-            s.style.opacity = '';
-            s.style.transform = '';
+            s.style.cssText = 'display:none;';
         });
 
         // Hedefi göster
         const el = document.getElementById('view-' + target);
         if (el) {
             const displayVal = target === 'auth' ? 'flex' : 'block';
-            el.style.display = displayVal;
-            el.style.opacity = '1';
-            el.style.transform = 'none';
+            el.style.cssText = `display:${displayVal};opacity:1;transform:none;`;
             el.classList.add('active', 'anim-enter');
             setTimeout(() => el.classList.remove('anim-enter'), 450);
         }
