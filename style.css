@@ -208,16 +208,10 @@ body {
 /* ─── HERO WRAPPER ────────────────────────── */
 .hero-wrapper {
     position: relative;
-    min-height: calc(100dvh - 65px);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 @media (max-width: 768px) {
     .hero-wrapper {
-        min-height: unset;
-        height: auto;
         padding-bottom: 2rem;
     }
     .hero-bg {
