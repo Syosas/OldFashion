@@ -80,7 +80,7 @@ body {
 .nav-underline {
     position: relative;
     padding-bottom: 2px;
-    transition: color 0.3s ease;
+    transition: color 0.55s ease;
     color: rgba(255,255,255,0.6);
 }
 .nav-underline::after {
@@ -92,11 +92,12 @@ body {
     height: 2px;
     background-color: var(--red);
     border-radius: 2px;
-    transition: width 0.3s ease;
+    transition: width 0.55s ease;
     will-change: width;
 }
 .nav-underline:hover {
     color: rgba(255,255,255,0.9);
+    transition: color 0.55s ease;
 }
 .nav-underline:hover::after {
     width: 100%;
@@ -109,7 +110,7 @@ body {
 }
 .nav-underline.active.hover-suppressed::after {
     width: 0;
-    transition: width 0.3s ease;
+    transition: width 0.55s ease;
 }
 /* hover-suppressed durumunda rengi değiştirme */
 .nav-underline.active.hover-suppressed {
@@ -488,19 +489,10 @@ body {
 }
 
 /* ─── HOME: İLK YÜKLEME FIX ──────────────── */
-/* view-section opacity:0 ile başlıyor ama home
-   JS'den bağımsız anında görünmeli */
-#view-home {
-    display: block !important;
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-}
-/* Home içindeki fade-in elementleri JS yüklenince çalışır,
-   ama page-overlay ile çakışmaması için delay artırıldı */
+/* JS initPageReveal() inline style ile handle eder.
+   CSS'de sadece fade-in delay ayarı var */
 #view-home .fade-in {
-    animation-delay: 0.05s !important;
-    opacity: 0;
+    animation-delay: 0.05s;
 }
 
 /* ─── SAYFA GEÇİŞİ ANİMASYONU ─────────────── */
@@ -515,4 +507,48 @@ body {
 /* ─── AUTH SECTION FIX ────────────────────── */
 #view-auth.view-section.active {
     display: flex !important;
+}
+
+/* ─── AUTH KART GEÇİŞ ANİMASYONU ──────────── */
+.auth-title-text {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+    transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.auth-subtitle-text {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+/* Blur out (geçiş başlarken) */
+#auth-card-inner.auth-switching {
+    filter: blur(6px);
+    opacity: 0.4;
+    transform: scale(0.98);
+    transition: filter 0.28s ease, opacity 0.28s ease, transform 0.28s ease;
+    pointer-events: none;
+}
+/* Blur in (yeni içerik gelince) */
+#auth-card-inner.auth-switched {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+    transition: filter 0.38s ease, opacity 0.38s ease, transform 0.38s ease;
+}
+#auth-card-inner {
+    transition: filter 0.28s ease, opacity 0.28s ease, transform 0.28s ease;
+}
+
+/* Tab bar'daki yazı kayma animasyonu */
+.auth-tab {
+    position: relative;
+    overflow: hidden;
+}
+.auth-tab span {
+    display: inline-block;
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.32s ease;
 }
