@@ -128,7 +128,7 @@
         <section id="view-home" class="view-section active">
             <div class="hero-wrapper px-6" style="position:relative;">
                 <div class="hero-bg" style="position:absolute; inset:0; background-image: url('images/background.png'); background-position: 40% center; background-size: cover; background-repeat: no-repeat; opacity: 0.45; pointer-events:none;"></div>
-                <div class="flex flex-col items-center text-center space-y-6 pt-8 pb-4 max-w-6xl mx-auto" style="position:relative; z-index:1;">
+                <div class="flex flex-col items-center text-center space-y-6 pt-12 pb-8 max-w-6xl mx-auto" style="position:relative; z-index:1;">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full online-badge text-xs font-medium fade-in">
                         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                         Sunucu Aktif - 0 Oyuncu Çevrimiçi
@@ -356,7 +356,7 @@
                     <button class="auth-tab active flex-1 py-2.5 text-sm font-semibold rounded-l-lg" data-type="login">Giriş Yap</button>
                     <button class="auth-tab flex-1 py-2.5 text-sm font-semibold rounded-r-lg" data-type="register">Kayıt Ol</button>
                 </div>
-                <div class="auth-card-new rounded-2xl p-8">
+                <div class="auth-card-new rounded-2xl p-8" id="auth-card-inner">
                     <div class="flex justify-center mb-6">
                         <div class="auth-avatar">
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
@@ -366,8 +366,8 @@
                         </div>
                     </div>
                     <div id="auth-title-block" class="text-center mb-7">
-                        <h2 class="text-lg font-bold text-white mb-1">Tekrar hoş geldin</h2>
-                        <p class="text-xs text-white/40">Hesabına giriş yap ve macerana devam et</p>
+                        <h2 class="auth-title-text">Tekrar hoş geldin</h2>
+                        <p class="auth-subtitle-text">Hesabına giriş yap ve macerana devam et</p>
                     </div>
                     <form id="auth-form" class="space-y-4">
                         <div id="register-fields" class="hidden space-y-4">
@@ -383,6 +383,12 @@
                         <div class="auth-field-wrap">
                             <label class="auth-label">Şifre</label>
                             <input type="password" class="auth-input-new" placeholder="••••••••">
+                        </div>
+                        <div id="remember-row" class="flex items-center gap-2 cursor-pointer" onclick="toggleRemember()">
+                            <div id="remember-box" class="remember-checkbox">
+                                <i id="remember-check" data-lucide="check" class="hidden" style="width:10px;height:10px;color:white;"></i>
+                            </div>
+                            <span class="text-xs text-white/40">Beni hatırla</span>
                         </div>
                         <button type="button" class="submit-btn-new w-full py-2.5 rounded-lg text-white text-sm font-semibold mt-2">Devam Et</button>
                     </form>
