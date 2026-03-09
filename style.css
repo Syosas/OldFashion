@@ -209,10 +209,31 @@ body {
 /* Arka plan doğrudan wrap'a verildi — ayrı absolute div YOK
    Yükseklik tamamen içeriğe göre, siyah boşluk imkansız */
 .hero-bg-wrap {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     background-image: url('images/background.png');
-    background-position: 40% center;
+    background-position: 50% 70%;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/* Arka plan karartma */
+.hero-bg-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(14,14,17,0.57);
+    z-index: 0;
+}
+
+.hero-content,
+.hero-cards{
+    position: relative;
+    z-index: 1;
 }
 .hero-content,
 .hero-cards {
