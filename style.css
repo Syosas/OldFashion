@@ -23,7 +23,7 @@ body {
 
 /* ─── PAGE TRANSITION ─────────────────────── */
 #page-overlay {
-    position: fixed;
+    position: fixed !important;
     inset: 0;
     background: #0e0e11;
     z-index: 999;
@@ -196,7 +196,7 @@ body {
 
 /* ─── PARTICLE CANVAS (fullscreen, above all except toast) ─ */
 #particle-canvas {
-    position: fixed;
+    position: fixed !important;
     inset: 0;
     width: 100vw;
     height: 100vh;
@@ -348,7 +348,7 @@ body {
 /* ─── MOBILE DRAWER ───────────────────────── */
 .mobile-overlay {
     display: none;
-    position: fixed;
+    position: fixed !important;
     inset: 0;
     background: rgba(0,0,0,0.5);
     z-index: 40;
@@ -357,7 +357,7 @@ body {
 .mobile-overlay.open { display: block; }
 
 .mobile-drawer {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     right: 0;
     height: 100%;
