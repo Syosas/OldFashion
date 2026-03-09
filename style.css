@@ -205,32 +205,40 @@ body {
     opacity: 1;
 }
 
-/* ─── HERO WRAPPER ────────────────────────── */
-.hero-wrapper {
+/* ─── HERO ────────────────────────────────── */
+/* hero-bg-wrap: arka plan görseli + içerik,
+   yüksekliği içeriğe göre otomatik */
+.hero-bg-wrap {
     position: relative;
     overflow: hidden;
 }
-@media (max-width: 768px) {
-    .hero-wrapper {
-        padding-bottom: 2rem;
-    }
-    .hero-bg {
-        background-image: url('images/backgroundmob.png') !important;
-        background-position: center center !important;
-        background-size: cover !important;
-        opacity: 0.4 !important;
-    }
-}
-.hero-bg {
+.hero-bg-img {
     position: absolute;
     inset: 0;
+    background-image: url('images/background.png');
+    background-position: 40% center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.45;
+    pointer-events: none;
     z-index: 0;
     transform: translateZ(0);
     will-change: transform;
 }
-.hero-wrapper > * {
+.hero-content,
+.hero-cards {
     position: relative;
     z-index: 1;
+}
+@media (max-width: 768px) {
+    .hero-bg-img {
+        background-image: url('images/backgroundmob.png');
+        background-position: center center;
+        opacity: 0.4;
+    }
+    .hero-cards {
+        padding-bottom: 2rem;
+    }
 }
 
 /* ─── ONLINE BADGE ────────────────────────── */
