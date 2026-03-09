@@ -486,3 +486,33 @@ body {
     border-color: var(--red);
     background: var(--red);
 }
+
+/* ─── HOME: İLK YÜKLEME FIX ──────────────── */
+/* view-section opacity:0 ile başlıyor ama home
+   JS'den bağımsız anında görünmeli */
+#view-home {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+/* Home içindeki fade-in elementleri JS yüklenince çalışır,
+   ama page-overlay ile çakışmaması için delay artırıldı */
+#view-home .fade-in {
+    animation-delay: 0.05s !important;
+    opacity: 0;
+}
+
+/* ─── SAYFA GEÇİŞİ ANİMASYONU ─────────────── */
+.view-section.anim-enter {
+    animation: sectionEnter 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes sectionEnter {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── AUTH SECTION FIX ────────────────────── */
+#view-auth.view-section.active {
+    display: flex !important;
+}
