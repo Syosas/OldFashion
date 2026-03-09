@@ -206,12 +206,16 @@ body {
 }
 
 /* ─── HERO ────────────────────────────────── */
-/* hero-bg-wrap: arka plan görseli + içerik,
-   yüksekliği içeriğe göre otomatik */
+/* hero-bg-wrap: arka plan görseli + içerik */
 .hero-bg-wrap {
     position: relative;
     overflow: hidden;
+    min-height: 100vh; /* EKLENEN SATIR - hero ekranı doldurur */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .hero-bg-img {
     position: absolute;
     inset: 0;
@@ -225,17 +229,20 @@ body {
     transform: translateZ(0);
     will-change: transform;
 }
+
 .hero-content,
 .hero-cards {
     position: relative;
     z-index: 1;
 }
+
 @media (max-width: 768px) {
     .hero-bg-img {
         background-image: url('images/backgroundmob.png');
         background-position: center center;
         opacity: 0.4;
     }
+
     .hero-cards {
         padding-bottom: 2rem;
     }
